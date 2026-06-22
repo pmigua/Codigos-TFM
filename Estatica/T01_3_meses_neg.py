@@ -73,7 +73,7 @@ transformXZ = Transform(registrationName='Transform X-Z', Input=disk1)
 transformXZ.Transform.Rotate = [90.0, 0.0, 0.0]
 
 # create a new 'Legacy VTK Reader'
-test_T01_cartesian_3_meses_negvtk = LegacyVTKReader(registrationName='Test_T01_cartesian_3_meses_neg.vtk', FileNames=['C:\\Users\\pmigu\\Desktop\\T01\\Test_T01_cartesian_3_meses_neg.vtk'])
+test_T01_cartesian_vtk = LegacyVTKReader(registrationName='Test_T01_cartesian.vtk', FileNames=['C:\\Users\\pmigu\\Desktop\\T01\\Test_T01_cartesian.vtk'])
 
 # create a new 'Slice'
 planoXZ = Slice(registrationName='Plano X-Z', Input=test_T01_cartesian_3_meses_negvtk)
