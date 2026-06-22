@@ -1,4 +1,4 @@
-      PROGRAM Test_T01_cartesian_3_meses_neg
+      PROGRAM Test_T01_cartesian
 
       EXTERNAL IGRF_GSW_08, T01_01
 
@@ -53,7 +53,7 @@
       
 
 
-      WRITE(FILENAME,'(''Test_T01_cartesian_3_meses_neg.vtk'')')
+      WRITE(FILENAME,'(''Test_T01_cartesian.vtk'')')
       OPEN(UNIT=1,FILE=FILENAME)
 
       WRITE (1,'(''# vtk DataFile Version 3.0'')')
