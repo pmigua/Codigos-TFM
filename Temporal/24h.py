@@ -3,6 +3,8 @@ import paraview
 paraview.compatibility.major = 6
 paraview.compatibility.minor = 0
 
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
 #### import the simple module from the paraview
 from paraview.simple import *
 #### disable automatic camera reset on 'Show'
@@ -49,7 +51,7 @@ SetActiveView(renderView1)
 # ----------------------------------------------------------------
 
 # create a new 'PVD Reader'
-t01_field_timeseries_XMLpvd = PVDReader(registrationName='T01_field_timeseries_XML.pvd', FileName='.\\T01_timeseries\\T01_field_timeseries_XML.pvd')
+t01_field_timeseries_XMLpvd = PVDReader(registrationName='T01_field_timeseries_XML.pvd', FileName=os.path.join(SCRIPT_DIR, 'T01_timeseries', 'T01_field_timeseries_XML.pvd'))
 t01_field_timeseries_XMLpvd.PointArrays = ['B_total']
 
 # create a new 'Calculator'
@@ -57,7 +59,7 @@ calculator1 = Calculator(registrationName='Calculator1', Input=t01_field_timeser
 calculator1.Function = 'B_total_X*iHat+B_total_Z*kHat'
 
 # create a new 'PVD Reader'
-t01_SM_seeds_timeseries_XMLpvd = PVDReader(registrationName='T01_SM_seeds_timeseries_XML.pvd', FileName='.\\T01_timeseries\\T01_SM_seeds_timeseries_XML.pvd')
+t01_SM_seeds_timeseries_XMLpvd = PVDReader(registrationName='T01_SM_seeds_timeseries_XML.pvd', FileName=os.path.join(SCRIPT_DIR, 'T01_timeseries', 'T01_SM_seeds_timeseries_XML.pvd'))
 t01_SM_seeds_timeseries_XMLpvd.PointArrays = ['hemisphere']
 
 # create a new 'Stream Tracer With Custom Source'
