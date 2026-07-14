@@ -212,8 +212,8 @@ tierraDisplay.ScaleTransferFunction.Points = [-0.9749279022216797, 0.0, 0.5, 0.0
 # init the 'Piecewise Function' selected for 'OpacityTransferFunction'
 tierraDisplay.OpacityTransferFunction.Points = [-0.9749279022216797, 0.0, 0.5, 0.0, 0.9749279022216797, 1.0, 0.5, 0.0]
 
-# show data from test_T01_cartesian_3_meses_negvtk
-test_T01_cartesian_3_meses_negvtkDisplay = Show(test_T01_cartesianvtk, renderView1, 'StructuredGridRepresentation')
+# show data from test_T01_cartesianvtk
+test_T01_cartesianvtkDisplay = Show(test_T01_cartesianvtk, renderView1, 'StructuredGridRepresentation')
 
 # trace defaults for the display properties.
 test_T01_cartesianvtkDisplay.Set(
