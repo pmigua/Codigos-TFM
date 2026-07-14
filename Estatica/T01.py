@@ -79,7 +79,7 @@ transformXZ.Transform.Rotate = [90.0, 0.0, 0.0]
 test_T01_cartesian_vtk = LegacyVTKReader(registrationName='Test_T01_cartesian.vtk', FileNames=[os.path.join(SCRIPT_DIR, 'Test_T01_cartesian.vtk')])
 
 # create a new 'Slice'
-planoXZ = Slice(registrationName='Plano X-Z', Input=test_T01_cartesian_3_meses_negvtk)
+planoXZ = Slice(registrationName='Plano X-Z', Input=test_T01_cartesianvtk)
 planoXZ.SliceOffsetValues = [0.0]
 
 # init the 'Plane' selected for 'SliceType'
@@ -100,7 +100,7 @@ isolneasXZ.Set(
 )
 
 # create a new 'Calculator'
-calculatorXZ = Calculator(registrationName='Calculator X-Z', Input=test_T01_cartesian_3_meses_negvtk)
+calculatorXZ = Calculator(registrationName='Calculator X-Z', Input=test_T01_cartesianvtk)
 calculatorXZ.Function = 'igrf_X*iHat+igrf_Z*kHat'
 
 # create a new 'Stream Tracer'
@@ -135,7 +135,7 @@ streamTracerWithCustomSourceXZ.Set(
 )
 
 # create a new 'Calculator'
-calculatorXY = Calculator(registrationName='Calculator X-Y', Input=test_T01_cartesian_3_meses_negvtk)
+calculatorXY = Calculator(registrationName='Calculator X-Y', Input=test_T01_cartesianvtk)
 calculatorXY.Function = 'igrf_X*iHat+igrf_Y*jHat'
 
 # create a new 'Stream Tracer With Custom Source'
@@ -157,7 +157,7 @@ transformYZ = Transform(registrationName='Transform Y-Z', Input=disk1)
 transformYZ.Transform.Rotate = [0.0, 90.0, 0.0]
 
 # create a new 'Stream Tracer With Custom Source'
-streamTracerWithCustomSource1 = StreamTracerWithCustomSource(registrationName='StreamTracerWithCustomSource1', Input=test_T01_cartesian_3_meses_negvtk,
+streamTracerWithCustomSource1 = StreamTracerWithCustomSource(registrationName='StreamTracerWithCustomSource1', Input=test_T01_cartesianvtk,
     SeedSource=sphere2)
 streamTracerWithCustomSource1.Set(
     Vectors=['POINTS', 'igrf'],
@@ -165,7 +165,7 @@ streamTracerWithCustomSource1.Set(
 )
 
 # create a new 'Contour'
-isoplanosXZ = Contour(registrationName='Isoplanos X-Z', Input=test_T01_cartesian_3_meses_negvtk)
+isoplanosXZ = Contour(registrationName='Isoplanos X-Z', Input=test_T01_cartesianvtk)
 isoplanosXZ.Set(
     ContourBy=['POINTS', 'igrf_Magnitude'],
     Isosurfaces=[50.0, 100.0, 200.0, 500.0, 1000.0, 2000.0, 5000.0],
@@ -181,7 +181,7 @@ clip1.ClipType.Normal = [0.0, 1.0, 0.0]
 clip1.HyperTreeGridClipper.Origin = [-1.6736512184143066, -0.011203765869140625, 0.4592742919921875]
 
 # create a new 'Calculator'
-calculatorYZ = Calculator(registrationName='Calculator Y-Z', Input=test_T01_cartesian_3_meses_negvtk)
+calculatorYZ = Calculator(registrationName='Calculator Y-Z', Input=test_T01_cartesianvtk)
 calculatorYZ.Function = 'igrf_Y*jHat+igrf_Z*kHat'
 
 # create a new 'Stream Tracer With Custom Source'
@@ -213,19 +213,19 @@ tierraDisplay.ScaleTransferFunction.Points = [-0.9749279022216797, 0.0, 0.5, 0.0
 tierraDisplay.OpacityTransferFunction.Points = [-0.9749279022216797, 0.0, 0.5, 0.0, 0.9749279022216797, 1.0, 0.5, 0.0]
 
 # show data from test_T01_cartesian_3_meses_negvtk
-test_T01_cartesian_3_meses_negvtkDisplay = Show(test_T01_cartesian_3_meses_negvtk, renderView1, 'StructuredGridRepresentation')
+test_T01_cartesian_3_meses_negvtkDisplay = Show(test_T01_cartesianvtk, renderView1, 'StructuredGridRepresentation')
 
 # trace defaults for the display properties.
-test_T01_cartesian_3_meses_negvtkDisplay.Set(
+test_T01_cartesianvtkDisplay.Set(
     Representation='Outline',
     ColorArrayName=[None, ''],
 )
 
 # init the 'Piecewise Function' selected for 'ScaleTransferFunction'
-test_T01_cartesian_3_meses_negvtkDisplay.ScaleTransferFunction.Points = [-17080.470703125, 0.0, 0.5, 0.0, 15604.7001953125, 1.0, 0.5, 0.0]
+test_T01_cartesianvtkDisplay.ScaleTransferFunction.Points = [-17080.470703125, 0.0, 0.5, 0.0, 15604.7001953125, 1.0, 0.5, 0.0]
 
 # init the 'Piecewise Function' selected for 'OpacityTransferFunction'
-test_T01_cartesian_3_meses_negvtkDisplay.OpacityTransferFunction.Points = [-17080.470703125, 0.0, 0.5, 0.0, 15604.7001953125, 1.0, 0.5, 0.0]
+test_T01_cartesianvtkDisplay.OpacityTransferFunction.Points = [-17080.470703125, 0.0, 0.5, 0.0, 15604.7001953125, 1.0, 0.5, 0.0]
 
 # show data from clip1
 clip1Display = Show(clip1, renderView1, 'UnstructuredGridRepresentation')
